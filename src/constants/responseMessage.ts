@@ -17,6 +17,8 @@ export default {
   LIKE_SUCCESS: "좋아요 성공",
 
   MATCH_TWO_SUCCESS: "두 명 연결 성공",
+  CREATE_USER:"유저 생성 성공!",
+  CREATE_EVALUATION:"평가 생성 성공!",
 
   // 서버 내 오류
   INTERNAL_SERVER_ERROR: "서버 내 오류",

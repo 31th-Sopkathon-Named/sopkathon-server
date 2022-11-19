@@ -1,13 +1,14 @@
 import { UserMatchDTO } from "./../interfaces/user/UserMatchDTO";
+import { UserCreateDTO } from "../interfaces/user/UserCreateDTO";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 
-const createUser = async (nickName: string, phoneNum:string) => {
+const createUser = async (userCreateDTO:UserCreateDTO) => {
     const data = await prisma.user.create({
         data:{
-            nickName:nickName,
-            phoneNum:phoneNum
+            nickName:userCreateDTO.nickName,
+            phoneNum:userCreateDTO.phoneNum
         }
     });
     const result = {
@@ -28,7 +29,7 @@ const matchTwo = async (userMatchDTO: UserMatchDTO) => {
 
     const data = {
       fromId: userMatchDTO.myId,
-      toId: user.id,
+      toId: user?.id,
     };
 
     return data;
