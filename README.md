@@ -97,7 +97,8 @@ Link : https://eunbigombi.notion.site/Code-Convention-60a98e719ca14ba480111149e7
 ## ERD
 
 ---
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/407ed463-4256-46fe-86c6-ad7fd966ca64/Untitled.png)
+![Untitled (5)](https://user-images.githubusercontent.com/78267146/202872866-24070b8a-8e51-4df5-93f9-cc3889415b5e.png)
+
 
 
 <br/><br/>
