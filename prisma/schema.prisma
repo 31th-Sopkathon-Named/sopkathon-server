@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,23 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model Evaluation {
+  from                       Int
+  to                         Int
+  rate                       String? @db.VarChar(30)
+  User_Evaluation_fromToUser User    @relation("Evaluation_fromToUser", fields: [from], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "from")
+  User_Evaluation_toToUser   User    @relation("Evaluation_toToUser", fields: [to], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "to")
+
+  @@ignore
+}
+
+model User {
+  id                               Int          @id(map: "table_name_pkey") @default(autoincrement())
+  nickName                         String       @db.VarChar(100)
+  phoneNum                         Int
+  Evaluation_Evaluation_fromToUser Evaluation[] @relation("Evaluation_fromToUser") @ignore
+  Evaluation_Evaluation_toToUser   Evaluation[] @relation("Evaluation_toToUser") @ignore
 }
