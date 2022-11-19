@@ -20,7 +20,7 @@ import { UserService } from "../service";
       }
       return res
         .status(sc.CREATED)
-        .send(success(sc.CREATED, rm.CREATE_EVALUATION, data));
+        .send(success(sc.CREATED, rm.CREATE_USER, data));
     } catch (error) {
       return res
         .status(sc.INTERNAL_SERVER_ERROR)
