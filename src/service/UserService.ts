@@ -28,7 +28,7 @@ const matchTwo = async (userMatchDTO: UserMatchDTO) => {
 
     const data = {
       fromId: userMatchDTO.myId,
-      toId: user.id,
+      toId: user?.id,
     };
 
     return data;
