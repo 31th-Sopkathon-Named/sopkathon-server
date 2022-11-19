@@ -7,8 +7,8 @@ import UserRouter from "./UserRouter";
 const router: Router = Router();
 
 //router.use("/main", MainRouter);
-router.use("/main", UserRouter);
-router.use("/main", EvaluationRouter);
-router.use("/main", ResultRouter);
+router.use("/user", UserRouter);
+router.use("/evaluation", EvaluationRouter);
+router.use("/result", ResultRouter);
 
 export default router;

@@ -7,21 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model Evaluation {
-  from                       Int
-  to                         Int
-  rate                       String? @db.VarChar(30)
-  User_Evaluation_fromToUser User    @relation("Evaluation_fromToUser", fields: [from], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "from")
-  User_Evaluation_toToUser   User    @relation("Evaluation_toToUser", fields: [to], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "to")
-
-  @@ignore
+  id                           Int    @id @default(autoincrement())
+  fromId                       Int
+  toId                         Int
+  rate                         String @db.VarChar(100)
+  User_Evaluation_fromIdToUser User   @relation("Evaluation_fromIdToUser", fields: [fromId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fromId")
+  User_Evaluation_toIdToUser   User   @relation("Evaluation_toIdToUser", fields: [toId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "toId")
 }
 
 model User {
-  id                               Int          @id(map: "table_name_pkey") @default(autoincrement())
-  nickName                         String       @db.VarChar(100)
-  phoneNum                         Int
-  Evaluation_Evaluation_fromToUser Evaluation[] @relation("Evaluation_fromToUser") @ignore
-  Evaluation_Evaluation_toToUser   Evaluation[] @relation("Evaluation_toToUser") @ignore
+  id                                 Int          @id @unique @default(autoincrement())
+  nickName                           String       @db.VarChar(100)
+  phoneNum                           String       @db.VarChar(100)
+  Evaluation_Evaluation_fromIdToUser Evaluation[] @relation("Evaluation_fromIdToUser")
+  Evaluation_Evaluation_toIdToUser   Evaluation[] @relation("Evaluation_toIdToUser")
 }

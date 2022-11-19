@@ -3,7 +3,7 @@ import { UserController } from "../controller";
 
 const router: Router = Router();
 
-//router.post("/", UserController);
-//router.post("/match", UserController);
+router.post("/", UserController.createUser);
+// router.post("/match", UserController);
 
 export default router;
