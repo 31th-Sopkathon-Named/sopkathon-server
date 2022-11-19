@@ -94,6 +94,90 @@ Link : https://eunbigombi.notion.site/Code-Convention-60a98e719ca14ba480111149e7
 
 <br/><br/>
 
+## ERD
+
+---
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/407ed463-4256-46fe-86c6-ad7fd966ca64/Untitled.png)
+
+
+<br/><br/>
+
+## schema.prisma
+
+---
+```
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Evaluation {
+  id                           Int    @id @default(autoincrement())
+  fromId                       Int
+  toId                         Int
+  rate                         String @db.VarChar(100)
+  User_Evaluation_fromIdToUser User   @relation("Evaluation_fromIdToUser", fields: [fromId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fromId")
+  User_Evaluation_toIdToUser   User   @relation("Evaluation_toIdToUser", fields: [toId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "toId")
+}
+
+model User {
+  id                                 Int          @id @unique @default(autoincrement())
+  nickName                           String       @db.VarChar(100)
+  phoneNum                           String       @db.VarChar(100)
+  Evaluation_Evaluation_fromIdToUser Evaluation[] @relation("Evaluation_fromIdToUser")
+  Evaluation_Evaluation_toIdToUser   Evaluation[] @relation("Evaluation_toIdToUser")
+}
+
+```
+
+<br/><br/>
+
+## package.json
+
+---
+```
+{
+  "name": "sopkathon-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/31th-Sopkathon-Named/sopkathon-server.git",
+  "author": "dltjdn <hana40004@naver.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc && node dist",
+    "db:pull": "npx prisma db pull",
+    "db:push": "npx prisma db push",
+    "generate": "npx prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.6.1",
+    "express": "^4.18.2",
+    "prisma": "^4.6.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.9",
+    "nodemon": "^2.0.20"
+  }
+}
+
+```
+
+<br/><br/>
+## server architecture
+
+
+---
+
+![KakaoTalk_20221120_064114202](https://user-images.githubusercontent.com/78267146/202872745-17ec4c46-87a9-4a32-b98d-e44ae40dda7c.png)
+
+
+<br/><br/>
 ## API DOCS
 
 ---
