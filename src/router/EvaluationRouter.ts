@@ -3,6 +3,6 @@ import { EvaluationController } from "../controller";
 
 const router: Router = Router();
 
-//router.post("/", EvaluationController);
+router.post("/", EvaluationController.createEvaluation);
 
 export default router;
