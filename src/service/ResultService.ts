@@ -44,9 +44,10 @@ const getResult = async (
 
         let sum = giveRate + receiveRate;
 
-        if (sum >= 1 && sum <= 3) result = 1;
-        else if (sum >= 4 && sum <= 6) result = 2;
-        else result = 3;
+        if (sum >= 2 && sum <= 3) result = 1;
+        else if (sum >= 4 && sum <= 5) result = 2;
+        else if (sum == 6) result = 3;
+        else result = 4;
       }
 
       const data: ResultResponseDTO = {
