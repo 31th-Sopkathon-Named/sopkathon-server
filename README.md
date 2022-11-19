@@ -4,8 +4,8 @@
 
 ---
 
-- 서비스명 : 로그인유(LOG:IN U)
-- 서비스 한 줄 소개 : 타인의 일상을 살아보는 서비스
+- 서비스명 : 2h
+- 서비스 한 줄 소개 : 2사람의 마음의 변화는 2시간 2병으로 결정된다
 
 <br/><br/>
 
@@ -15,8 +15,8 @@
 
 ---
 
-- 지윤 : 모든 일상 조회, 일상 담기, 내가 담은 일상 전체 조회, 미션 체크
-- 서우 : 내 일상 등록, 내가 등록한 일상 조회
+- 가희 : 내 정보 입력, 평가 입력 API , 설계
+- 서우 : 상대방과 매치, 결과 보기 API, db설계 
 
 
 <br/><br/>
@@ -33,7 +33,7 @@ Link : https://eunbigombi.notion.site/Code-Convention-60a98e719ca14ba480111149e7
 
 ---
 <aside>
-👼 `main branch` : 배포 단위 branch
+`main branch` : 배포 단위 branch
 
 `develop branch` : 주요 개발 branch, main merge 전 거치는 branch
 
