@@ -1,19 +1,21 @@
 import { UserMatchDTO } from "./../interfaces/user/UserMatchDTO";
+import { UserCreateDTO } from "../interfaces/user/UserCreateDTO";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-//*  내 정보 입력
-const createUser = async (nickName: string, phoneNum: string) => {
-  const data = await prisma.user.create({
-    data: {
-      nickName: nickName,
-      phoneNum: phoneNum,
-    },
-  });
-  const result = {
-    myId: data.id,
-  };
-  return result;
+
+
+const createUser = async (userCreateDTO:UserCreateDTO) => {
+    const data = await prisma.user.create({
+        data:{
+            nickName:userCreateDTO.nickName,
+            phoneNum:userCreateDTO.phoneNum
+        }
+    });
+    const result = {
+        "myId":data.id
+    }
+    return result;
 };
 
 //* 상대방과 매치
