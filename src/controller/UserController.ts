@@ -3,7 +3,7 @@ import { UserCreateDTO } from "../interfaces/user/UserCreateDTO";
 import { Request, Response } from "express";
 import { rm, sc } from "../constants";
 import { success, fail } from "../constants/response";
-import { UserService } from "../service";
+import UserService from "../service/UserService";
 
 
 
@@ -30,7 +30,6 @@ import { UserService } from "../service";
   
 
 
-
 //* 상대방과 매치
 const matchTwo = async (req: Request, res: Response) => {
   try {
@@ -55,7 +54,7 @@ const matchTwo = async (req: Request, res: Response) => {
 
 const UserController = {
   matchTwo,
-  createUser
+  createUser,
 };
 
 export default UserController;

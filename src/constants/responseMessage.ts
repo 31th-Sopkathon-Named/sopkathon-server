@@ -4,21 +4,11 @@ export default {
   NOT_FOUND: "잘못된 경로입니다.",
   BAD_REQUEST: "잘못된 요청입니다.",
 
-  // 메인 화면
-  GET_PICKED_SUCCESS: "추천 상품 조회 성공",
-  GET_BRAND_PRODUCT_SUCCESS: "브랜드별 상품 조회 성공",
-
-  //검색화면
-  GET_SEARCH_SUCCESS: "메인 검색 화면 조회 성공",
-  GET_SEARCH_RESULT_SUCCESS: "검색 결과 조회 성공",
-
-  //상품
-  GET_PRODUCT_DETAIL_SUCCESS: "상품 상세 화면 조회 성공",
-  LIKE_SUCCESS: "좋아요 성공",
-
   MATCH_TWO_SUCCESS: "두 명 연결 성공",
+  GET_RESULT_SUCCESS: "결과 조회 성공",
   CREATE_USER:"유저 생성 성공!",
   CREATE_EVALUATION:"평가 생성 성공!",
+
 
   // 서버 내 오류
   INTERNAL_SERVER_ERROR: "서버 내 오류",

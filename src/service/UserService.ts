@@ -4,6 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 
+
 const createUser = async (userCreateDTO:UserCreateDTO) => {
     const data = await prisma.user.create({
         data:{
@@ -15,7 +16,7 @@ const createUser = async (userCreateDTO:UserCreateDTO) => {
         "myId":data.id
     }
     return result;
-  };
+};
 
 //* 상대방과 매치
 const matchTwo = async (userMatchDTO: UserMatchDTO) => {
@@ -41,8 +42,7 @@ const matchTwo = async (userMatchDTO: UserMatchDTO) => {
 
 const UserService = {
   matchTwo,
-  createUser
+  createUser,
 };
-
 
 export default UserService;
