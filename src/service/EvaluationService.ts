@@ -1,13 +1,14 @@
 import { PrismaClient } from "@prisma/client";
+import { EvaluationCreateDTO } from "../interfaces/evaluation/EvaluationCreateDTO";
 const prisma = new PrismaClient();
 
 
-const createEvaluation = async (fromId: number, toId:number,rate:Array<number>) => {
+const createEvaluation = async (evaluationCreateDTO:EvaluationCreateDTO) => {
     const data = await prisma.evaluation.create({
         data:{
-            fromId:fromId,
-            toId:toId,
-            rate:JSON.stringify(rate)
+            fromId:evaluationCreateDTO.fromId,
+            toId:evaluationCreateDTO.toId,
+            rate:JSON.stringify(evaluationCreateDTO.rate)
         }
     });
     return data;
