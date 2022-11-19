@@ -3,6 +3,6 @@ import { ResultController } from "../controller";
 
 const router: Router = Router();
 
-//router.get("/", ResultController);
+//router.get("/:fromId/:toId", ResultController);
 
 export default router;
